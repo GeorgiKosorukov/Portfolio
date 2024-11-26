@@ -30,6 +30,8 @@ AND NOT EXISTS (
 ```
 
 
+
+
 ``` sql
 WITH CustomersLists AS (
     SELECT trim(regexp_split_to_table('{{default_email}}', '[ ,]+')) AS default_email
@@ -56,8 +58,11 @@ AND
 AND 
     to_date('{{ date_range.end }}'  ' 23:59:59', 'YYYY-MM-DD HH24:MI:SS') + interval '1 day'
 GROUP BY 
-    default_email, currency
+    default_email, currency;
 ```
+
+
+
 
 ``` sql
 WITH 
